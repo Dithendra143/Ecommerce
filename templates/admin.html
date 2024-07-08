@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <ul>
+            {% for item in items %}
+            <li>
+                <img src="{{ url_for('static', filename='uploads/' + item.image) }}" alt="{{ item.name }}" style="width:100px;height:100px;">
+                {{ item.name }} - ${{ item.price }}
+                <a href="{{ url_for('delete_item', id=item.id) }}">Delete</a>
+                <a href="{{ url_for('modify_item', id=item.id) }}">Modify</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('add_item') }}">Add Item</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Items for Sale</h1>
+        <ul>
+            {% for item in items %}
+            <li>
+                <img src="{{ url_for('static', filename='uploads/' + item.image) }}" alt="{{ item.name }}">
+                {{ item.name }} - ${{ item.price }}
+                <a href="{{ url_for('add_to_cart', item_id=item.id) }}">Add to Cart</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <nav>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+            <a href="{{ url_for('admin') }}">Admin</a>
+            <a href="{{ url_for('checkout') }}">Checkout</a>
+        </nav>
+    </div>
+</body>
+</html>

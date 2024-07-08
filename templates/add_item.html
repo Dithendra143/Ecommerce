@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Item</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Add Item</h1>
+            <form method="POST" enctype="multipart/form-data">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required>
+                <label for="price">Price:</label>
+                <input type="number" step="0.01" name="price" id="price" required>
+                <label for="description">Description:</label>
+                <input type="text" name="description" id="description">
+                <label for="image">Image:</label>
+                <input type="file" name="image" id="image">
+                <label for="gpio_pin">GPIO Pin:</label>
+                <input type="number" name="gpio_pin" id="gpio_pin" required>
+                <button type="submit">Add Item</button>
+            </form>
+        </div>
+    </body>
+</html>
